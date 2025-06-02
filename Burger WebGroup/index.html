@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Buenorra - Inicio</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/hobo-bt" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/huntesla-gloficka" rel="stylesheet">
+    <link rel="icon" href="./imagenes/logo-web.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</head>
+<script>
+    let docTit1e = document.title; 
+window.addEventListener("blur", function() {
+    document.title = "🍔¡No Te Lo Pierdas!🍔";
+});
+window.addEventListener("focus", function() {
+    document.title = docTit1e;
+});
+</script>
+<body class="mibody">
+    <header id="home">
+        <div style="position: relative;">
+            <h1>LA BUENORRA</h1>
+            <img src="../Burger WebGroup/imagenes/9b57e5ec1887d784d34f57c3b882fddc_400x400.png" 
+                 alt="" 
+                 style="position: absolute; top: 10px; right: 20px; width: 60px; height: auto; opacity: 0.8;">
+        </div>
+    
+        
+        <nav>
+            <ul style="margin-top: -15px; margin-bottom: 10px;">
+                <a href="#home">INICIO</a>
+                <a href="#aboutus">NOSOTROS</a>
+                <a href="#menu">MENÚ</a>
+                <a href="#subseccion">RESERVAS</a>
+                <a href="#contact">CONTACTO</a>
+                
+            </ul>
+        </nav>
+        
+    </header>
+    <main>
+
+        <section class="separador2"></section>
+
+        <section class="section1" id="home">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./imagenes/banner1.png" class="d-block w-100" alt="banner1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./imagenes/Banner2-Buenorra.png" class="d-block w-100" alt="banner2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./imagenes/banner3-Buenorra.png" class="d-block w-100" alt="banner3">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </div>
+        </section>  
+        
+        <section class="separador"></section>
+
+        <section class="section2" id="aboutus">
+            <div class="izquierda">
+                <img style="margin-bottom: 20px;" src="./imagenes/About-titulo.png" alt="">
+                <p>¡Bienvenidos a La Buenorra! Nos dedicamos a crear una experiencia 
+                    única de hamburguesas que deleitará tus papilas gustativas. Con un 
+                    enfoque en ingredientes de calidad y sabores innovadores, cada 
+                    hamburguesa es una obra maestra culinaria. Más allá de nuestras 
+                    deliciosas ofertas, nuestro ambiente animado y acogedor crea el 
+                    escenario perfecto para momentos inolvidables con amigos y familia. 
+                    Ven y únete a nosotros en La Buenorra, donde la pasión por la buena 
+                    comida se encuentra con un servicio excepcional.
+                </p>
+            </div>
+                
+            <div class="derecha">
+                <img class="foto" src="./imagenes/foto-section2.jpg" alt="">
+            </div>
+        </section>
+
+        <section class="separador2"></section>
+
+        <section class="section5">
+            <div class="card" style="width: 18rem;" id="subseccion">
+                <a href="https://maps.app.goo.gl/SgfBXWdX8v2LUEEG7" target="_blank">
+                    <img src="./imagenes/restaurante.jpg" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                  <a href="https://maps.app.goo.gl/NrXGGJmBhTjsSyYu8" class="btn btn-primary" target="_blank" style="background-color: red; border-color: red;">¡Encuéntranos!</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;" id="subseccion">
+                <a href="https://glovoapp.com/es/es/" target="_blank">
+                    <img src="./imagenes/delivery.jpg" class="card-img-top" alt="...">
+                 </a>
+                <div class="card-body">
+                  <a href="https://glovoapp.com/es/es/" target="_blank" class="btn btn-primary"  style="background-color: red; border-color: red;">Domicilio</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;" id="subseccion">
+                <a href="https://www.infojobs.net/" target="_blank">
+                    <img src="./imagenes/workwus.jpg" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">                 
+                  <a href="https://www.linkedin.com/" target="_blank" class="btn btn-primary" style="background-color: red; border-color: red;">¡Trabaja con nosotros!</a>
+                </div>
+              </div>  
+        </section>
+
+        <section class="section3">
+            <img src="./imagenes/Why Us.png" alt="">
+        </section>
+
+        <section class="section4" id="menu">
+            <div class="titulo">
+                <h1>MENÚ</h1>
+            </div>
+            <div class="opciones">
+                <figcaption class="uno">
+                    <img style="width: 200px;
+                    height: 170px;
+                    margin-right: -10;
+                    margin-right: -14px;
+                    margin-top: 13px;
+                "  src="./imagenes/labuenorra.png" alt="">
+                    <div class="texto">
+                        <h1>LA BUENORRA</h1>
+                        <p>Hecha con 100% carne de res, tocino, aros de cebolla, queso americano y salsa BBQ.</p>
+                    </div>
+                </figcaption>
+                <figcaption class="dos">
+                    <img style="margin-top: 10px;"  src="./imagenes/lahuevona.png" alt="">
+                    <div class="texto">
+                        <h1>LA HUEVONA</h1>
+                        <p>Hecha con 100% carne de res, queso americano y salsa picante</p>
+                    </div>
+                </figcaption>
+            </div>
+
+            <div class="boton">
+                <a href="../Burger WebGroup/pages/menu.html""><u>Ver menú completo</u>...</a>
+            </div>
+
+        </section>
+
+        <section class="section6" id="booking">
+            <div class="izquierda">
+                <img src="./imagenes/Contact-titulo.png" alt="">
+                <div class="datos">
+                    <div class="horario">
+                        <p>
+                            <h5>HORARIOS DE ATENCIÓN</h5>
+                            <P>Lun - Vie - 10 AM a 8 PM     123-456-789</P>
+                            <p>Sáb - Dom - 12 PM a 10 PM    buenorraburger@gmail.com</p>
+                        </p>
+                    </div>
+                    <div class="socialmedia">
+                        <h5>¡SÍGUENOS!</h5>
+                        <figure style="margin-top: -30px;">
+                            <a href="https://www.facebook.com/"><img  src="./imagenes/facebook-ico.png" alt=""></a>
+                            <a href="https://www.x.com/"><img src="./imagenes/twitter-ico.png" alt=""></a>
+                            <a href="https://www.instagram.com/"><img src="./imagenes/instagram-ico.png" alt=""></a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="derecha">
+                <img src="./imagenes/Contact-derecha.png" alt="">
+            </div>
+        </section>
+        
+        <section id="contact" class="separador2"></section>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Buenorra - Tu Cesta</title>
+    <link href="https://fonts.cdnfonts.com/css/hobo-bt" rel="stylesheet">
+    <link rel="icon" href="./imagenes/logo-web.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/cesta_css.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <a href="../index.html" class="back-button">← Inicio</a>
+    
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>🛒 TU CESTA</h1>
+            <p style="font-size: 1.2rem; color: #147f4c; font-family: Arial, sans-serif;">Revisa tu pedido antes de finalizar</p>
+        </div>
+
+        <div class="separador"></div>
+
+        <!-- Productos en la cesta -->
+        <div class="cart-section" id="cart-items">
+            <h2>📦 PRODUCTOS SELECCIONADOS</h2>
+            
+            <!-- Productos se cargarán aquí dinámicamente -->
+            <div id="items-container">
+                <!-- Ejemplo de productos (se reemplazarán dinámicamente) -->
+                <div class="cart-item" data-id="1">
+                    <img src="./imagenes/labuenorra.png" alt="La Buenorra" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=150&h=150&fit=crop'">
+                    <div class="item-details">
+                        <h4>LA BUENORRA</h4>
+                        <p>100% carne de res, tocino, aros de cebolla, queso americano y salsa BBQ</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="changeQuantity(1, -1)">-</button>
+                            <span class="quantity" id="qty-1">1</span>
+                            <button class="qty-btn" onclick="changeQuantity(1, 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="item-price" id="price-1">€12.50</div>
+                    <button class="remove-btn" onclick="removeItem(1)">🗑️</button>
+                </div>
+                
+                <div class="cart-item" data-id="2">
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=150&h=150&fit=crop" alt="Papas Fritas">
+                    <div class="item-details">
+                        <h4>PAPAS FRITAS CLÁSICAS</h4>
+                        <p>Papas cortadas frescas, fritas a la perfección</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="changeQuantity(2, -1)">-</button>
+                            <span class="quantity" id="qty-2">2</span>
+                            <button class="qty-btn" onclick="changeQuantity(2, 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="item-price" id="price-2">€9.00</div>
+                    <button class="remove-btn" onclick="removeItem(2)">🗑️</button>
+                </div>
+            </div>
+            
+            <!-- Mensaje de cesta vacía (oculto por defecto) -->
+            <div class="empty-cart" id="empty-cart" style="display: none;">
+                <h3>🍔 Tu cesta está vacía</h3>
+                <p>¡Añade algunas de nuestras deliciosas hamburguesas!</p>
+                <a href="./menu.html" class="btn-primary-custom">Ver Menú</a>
+            </div>
+        </div>
+
+        <div class="separador"></div>
+
+        <!-- Resumen del pedido -->
+        <div class="summary-section" id="order-summary">
+            <h2 style="color: rgb(239, 235, 209); font-size: 2rem; text-align: center; margin-bottom: 20px; font-family: 'Hobo BT', sans-serif;">💰 RESUMEN DEL PEDIDO</h2>
+            
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">€21.50</span>
+            </div>
+            
+            <div class="summary-row">
+                <span>Delivery:</span>
+                <span id="delivery">€2.50</span>
+            </div>
+            
+            <div class="summary-row">
+                <span>IVA (21%):</span>
+                <span id="tax">€5.04</span>
+            </div>
+            
+            <div class="summary-row summary-total">
+                <span>TOTAL:</span>
+                <span id="total">€29.04</span>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn-primary-custom" onclick="proceedToCheckout()">🚀 REALIZAR PEDIDO</button>
+                <a href="menu_page.html" class="btn-secondary-custom">➕ AÑADIR MÁS</a>
+            </div>
+        </div>
+
+        <div class="add-items-section">
+            <a href="../pages/menu.html" class="btn-secondary-custom">← Volver al Menú</a>
+        </div>
+    </div>
+
+    <script>
+        // Datos de productos (simulados)
+        let cartData = {
+            1: { name: "LA BUENORRA", price: 12.50, quantity: 1, image: "./imagenes/labuenorra.png" },
+            2: { name: "PAPAS FRITAS CLÁSICAS", price: 4.50, quantity: 2, image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=150&h=150&fit=crop" }
+        };
+
+        // Función para cambiar cantidad
+        function changeQuantity(itemId, change) {
+            if (cartData[itemId]) {
+                cartData[itemId].quantity += change;
+                if (cartData[itemId].quantity <= 0) {
+                    removeItem(itemId);
+                    return;
+                }
+                updateDisplay();
+            }
+        }
+
+        // Función para eliminar producto
+        function removeItem(itemId) {
+            if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+                delete cartData[itemId];
+                updateDisplay();
+            }
+        }
+
+        // Función para actualizar la visualización
+        function updateDisplay() {
+            const qtyElement = document.getElementById(`qty-${Object.keys(cartData)[0]}`);
+            const priceElement = document.getElementById(`price-${Object.keys(cartData)[0]}`);
+            
+            if (Object.keys(cartData).length === 0) {
+                document.getElementById('cart-items').style.display = 'none';
+                document.getElementById('order-summary').style.display = 'none';
+                document.getElementById('empty-cart').style.display = 'block';
+                return;
+            }
+
+            // Actualizar cantidades y precios
+            Object.keys(cartData).forEach(id => {
+                const qtyEl = document.getElementById(`qty-${id}`);
+                const priceEl = document.getElementById(`price-${id}`);
+                if (qtyEl) qtyEl.textContent = cartData[id].quantity;
+                if (priceEl) priceEl.textContent = `€${(cartData[id].price * cartData[id].quantity).toFixed(2)}`;
+            });
+
+            updateSummary();
+        }
+
+        // Función para actualizar el resumen
+        function updateSummary() {
+            let subtotal = 0;
+            Object.keys(cartData).forEach(id => {
+                subtotal += cartData[id].price * cartData[id].quantity;
+            });
+
+            const delivery = 2.50;
+            const tax = subtotal * 0.21;
+            const total = subtotal + delivery + tax;
+
+            document.getElementById('subtotal').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('delivery').textContent = `€${delivery.toFixed(2)}`;
+            document.getElementById('tax').textContent = `€${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `€${total.toFixed(2)}`;
+        }
+
+        // Función para proceder al checkout
+        function proceedToCheckout() {
+            if (Object.keys(cartData).length === 0) {
+                alert('Tu cesta está vacía. ¡Añade algunos productos primero!');
+                return;
+            }
+            
+            // Simular proceso de pedido
+            if (confirm('¿Confirmas tu pedido? Te redirigiremos al proceso de pago.')) {
+                alert('¡Genial! Tu pedido está siendo procesado. Te contactaremos pronto para confirmar los detalles.');
+                // Aquí iría la lógica real de checkout
+                // window.location.href = 'checkout.html';
+            }
+        }
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSummary();
+        });
+    </script>
+</body>
+</html>

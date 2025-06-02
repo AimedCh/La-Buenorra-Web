@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(239, 235, 209);
+    font-family: 'Hobo BT', sans-serif;
+    overflow-x: hidden;
+}
+
+.cart-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(239, 235, 209);
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #147f4c;
+    color: rgb(239, 235, 209);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    z-index: 1000;
+    font-family: 'Hobo BT', sans-serif;
+}
+
+.back-button:hover {
+    background: #1b814c;
+    color: rgb(239, 235, 209);
+    text-decoration: none;
+}
+
+.cart-header {
+    text-align: center;
+    margin: 60px 0 40px 0;
+    color: #147f4c;
+}
+
+.cart-header h1 {
+    font-size: 4rem;
+    color: #147f4c;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    font-family: 'Hobo BT', sans-serif;
+}
+
+.separador {
+    height: 40px;
+    background-image: linear-gradient(
+        45deg,
+        #1b814c 25%,
+        rgba(255, 255, 255, 0.001) 25%,
+        rgba(255, 255, 255, 0.001) 75%,
+        #1b814c 75%,
+        #1b814c
+    ),
+    linear-gradient(
+        45deg,
+        #1b814c 25%,
+        rgba(255, 255, 255, 0.001) 25%,
+        rgba(255, 255, 255, 0.001) 75%,
+        #1b814c 75%,
+        #1b814c
+    );
+    background-size: calc(20px * 2) calc(20px * 2);
+    background-position: 0 0, 20px 20px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.cart-section {
+    background: #147f4c;
+    border-radius: 15px;
+    padding: 30px;
+    color: rgb(239, 235, 209);
+    margin-bottom: 20px;
+}
+
+.cart-section h2 {
+    color: rgb(239, 235, 209);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid rgb(239, 235, 209);
+    padding-bottom: 10px;
+    font-family: 'Hobo BT', sans-serif;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(239, 235, 209, 0.95);
+    border-radius: 10px;
+    color: #147f4c;
+    transition: transform 0.3s ease;
+}
+
+.cart-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: 2px solid #147f4c;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h4 {
+    color: #147f4c;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    font-family: 'Hobo BT', sans-serif;
+}
+
+.item-details p {
+    color: #666;
+    font-size: 0.9rem;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.qty-btn {
+    background: #147f4c;
+    color: rgb(239, 235, 209);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.qty-btn:hover {
+    background: #1b814c;
+}
+
+.quantity {
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #147f4c;
+    min-width: 30px;
+    text-align: center;
+}
+
+.item-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #147f4c;
+    margin-left: 20px;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 60px 20px;
+    color: #147f4c;
+}
+
+.empty-cart h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Hobo BT', sans-serif;
+}
+
+.empty-cart p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.summary-section {
+    background: #147f4c;
+    border-radius: 15px;
+    padding: 30px;
+    color: rgb(239, 235, 209);
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+.summary-total {
+    border-top: 2px solid rgb(239, 235, 209);
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-custom {
+    background: #147f4c;
+    color: rgb(239, 235, 209);
+    border: 2px solid #147f4c;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Hobo BT', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary-custom:hover {
+    background: rgb(239, 235, 209);
+    color: #147f4c;
+    text-decoration: none;
+}
+
+.btn-secondary-custom {
+    background: transparent;
+    color: #147f4c;
+    border: 2px solid #147f4c;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Hobo BT', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary-custom:hover {
+    background: #147f4c;
+    color: rgb(239, 235, 209);
+    text-decoration: none;
+}
+
+.add-items-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 10px;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cart-item img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .cart-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary-custom,
+    .btn-secondary-custom {
+        width: 100%;
+        max-width: 300px;
+    }
+}
